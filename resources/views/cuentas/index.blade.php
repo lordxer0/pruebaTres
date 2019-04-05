@@ -2,7 +2,7 @@
 @section('titulo','cuentas')
 @section('content')
  <h1>Network Group Bank </h1>
- <a href="{{url('/cuentas/create')}}" class="btn btn-info pull-right">Crear Cliente</a>
+ <a href="{{url('/cuentas/create')}}" class="btn btn-info pull-right">Crear Cuenta</a>
  <hr>
  <table class="table table-striped table-bordered table-hover">
      <thead>

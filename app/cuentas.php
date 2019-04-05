@@ -17,5 +17,6 @@ class cuentas extends Model
         'updated_at',
     ];
 
-    protected $primarykey = 'cue_numero';
+    protected $primaryKey = 'cue_numero';
+    
 }

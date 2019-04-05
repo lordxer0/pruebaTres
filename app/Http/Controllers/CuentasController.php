@@ -70,9 +70,11 @@ class CuentasController extends Controller
      * @param  \App\cuentas  $cuentas
      * @return \Illuminate\Http\Response
      */
-    public function show(cuentas $cuentas)
+    public function show(cuentas $cuenta)
     {
         //
+        $cuenta = cuentas::find($cuenta->cue_numero);
+        return view('cuentas.ver', compact('cuenta'));
     }
 
     /**
@@ -81,9 +83,11 @@ class CuentasController extends Controller
      * @param  \App\cuentas  $cuentas
      * @return \Illuminate\Http\Response
      */
-    public function edit(cuentas $cuentas)
+    public function edit(cuentas $cuenta)
     {
         //
+        $cuenta = cuentas::find($cuenta->cue_numero);
+        return view('cuentas.editar', compact('cuenta'));
     }
 
     /**

@@ -1,8 +1,8 @@
 @extends('layout.plantilla')
 @section('content')
     <div>
-        <a href="{{ url('clientes')}}" class="btn btn-info pull-right"> << Atras </a>
-        <h1>Editar Cliente</h1>
+        <a href="{{ url('Cuenta')}}" class="btn btn-info pull-right"> << Atras </a>
+        <h1>Editar Cuenta</h1>
     </div>
     <hr>
     <div class="container">
@@ -15,25 +15,26 @@
                 </ul>
             </div>
         @endif
-        {!! Form::model($cliente, ['method' => 'PATCH', 'route' => ['clientes.update', $cliente->cli_cedula], 'files' => true ]) !!}
+        {!! Form::model($Cuenta, ['method' => 'PATCH', 'route' => ['Cuentas.update', $Cuenta->cue_numero], 'files' => true ]) !!}
         <div class="col">
             <div class="form-group">
-                    {!! Form::label('Numero Documento', 'Numero Documento:') !!}
-                    {!! Form::text('cli_cedula',null,['class' => 'form-control', 'required' => 'required']) !!}
+                    {!! Form::label('Numero cuenta', 'Numero cuenta:') !!}
+                    {!! Form::text('cue_numero',null,['class' => 'form-control', 'required' => 'required']) !!}
             </div>
             <div class="form-group">
-                {!! Form::label('Tipo Documento', 'Tipo Documento:') !!}
-                {!! Form::text('tdoc_codigo',null,['class' => 'form-control', 'required' => 'required']) !!}
+                {!! Form::label('Documento Cliente', 'Documento Cliente:') !!}
+                {!! Form::text('cli_cedula',null,['class' => 'form-control', 'required' => 'required']) !!}
             </div>
             <div class="row">
                 <div class="form-group">
-                        {!! Form::label('Nombre', 'Nombre:') !!}
-                        {!! Form::text('cli_nombre',null,['class'=>'form-control']) !!}
+                        {!! Form::label('Saldo', 'Saldo:') !!}
+                        {!! Form::text('cue_saldo',null,['class'=>'form-control']) !!}
                 </div>
                 <div class="col">
                     <div class="form-group">
-                            {!! Form::label('Direccion', 'Direccion:') !!}
-                            {!! Form::text('cli_direccion',null,['class' => 'form-control', 'required' => 'required']) !!}
+                            {!! Form::label('Estado', 'Estado:') !!}
+                            {!! Form::radio('cue_activa','activa',['class' => 'form-control', 'required' => 'required']) !!}
+                            {!! Form::radio('cue_activa','inactiva',['class' => 'form-control', 'required' => 'required']) !!}
                     </div>
                 </div>
                 <div class="form-group">
