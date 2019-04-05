@@ -7,6 +7,7 @@ use App\tipo_documentos;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Arr;
 use Validator;
 
 class ClientesController extends Controller
@@ -46,6 +47,9 @@ class ClientesController extends Controller
     {
         //
         $clientes = $request->all();
+
+        $numerocedula = Arr::get($clientes,'cli_cedula');
+
         $validator = Validator::make($clientes, [
             'cli_cedula'    => 'required|max:50',
             'tdoc_codigo'  => 'required|max:50',
@@ -58,9 +62,6 @@ class ClientesController extends Controller
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         } else {
-            
-            $numerocedula = $clientes::pluck('cli_cedula');
-
 
             clientes::create($clientes);
 
@@ -69,7 +70,7 @@ class ClientesController extends Controller
                     'cli_cedula' => $numerocedula,
                     'cue_saldo' => 0,
                     'cue_activa' => 'inactiva',
-                    'cue_clave' => substr($numerocedula->cli_cedula, -4,4),
+                    'cue_clave' => substr($numerocedula, -4,4),
                 ]
             );
 
