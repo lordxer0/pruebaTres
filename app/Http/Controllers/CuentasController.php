@@ -116,7 +116,12 @@ class CuentasController extends Controller
      
     public function autocrear(clientes $clientes){
 
-        //aqui es donde se auto crea la cuenta de ahorro de la persona en cuestion cuando se crea el usuaro
+        /*
+        aqui es donde se auto crea la cuenta de ahorro de la persona en cuestion cuando se crea el usuaro
+        esta funcion no se uso debido a falta de tiempo, y comprencion del laravel pero la idea es usarla
+        evitando asi hacerlo directamente y que se vea veo en el codigo 
+
+        */
         
         DB::table('cuentas')->insert(
             [
