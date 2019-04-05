@@ -60,7 +60,7 @@ class ClientesController extends Controller
         } else {
             
             clientes::create($clientes);
-            cuentas::create($clientes);
+            cuentas::create($clientes,$clientes);
             return redirect('clientes');    
         }
 

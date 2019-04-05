@@ -42,14 +42,12 @@ class CuentasController extends Controller
     {
         //
         if($clientes){
-            $cuentas = $request->all();
-
             DB::table('cuentas')->insert(
                 [
                     'cli_cedula' => $clientes->cli_cedula,
-                    'cue_saldo' => '0',
-                    'cue_activa' => 'inactiva',
-                    'cue_clave' => substr($clientes->cli_cedula, -4,4)
+                    'cue_clave' => substr($clientes->cli_cedula, -4,4),
+                    'cue_saldo' => 0,
+                    'cue_activa' => 'inactiva'
                 ]
             );
         }else
