@@ -47,9 +47,9 @@ class CuentasController extends Controller
             DB::table('cuentas')->insert(
                 [
                     'cli_cedula' => $clientes->cli_cedula,
-                    'cue_saldo' => 0,
+                    'cue_saldo' => '0',
                     'cue_activa' => 'inactiva',
-                    'cue_clave'
+                    'cue_clave' => substr($clientes->cli_cedula, -4,4)
                 ]
             );
         }else

@@ -59,8 +59,8 @@ class ClientesController extends Controller
             return back()->withErrors($validator)->withInput();
         } else {
             
-            cuentas::create($clientes);
             clientes::create($clientes);
+            cuentas::create($clientes);
             return redirect('clientes');    
         }
 
