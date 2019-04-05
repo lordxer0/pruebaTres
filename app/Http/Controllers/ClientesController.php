@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\clientes;
-use App\cuentas;
 use App\tipo_documentos;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Validator;
 
 class ClientesController extends Controller
@@ -59,8 +59,20 @@ class ClientesController extends Controller
             return back()->withErrors($validator)->withInput();
         } else {
             
+            $numerocedula = $clientes::pluck('cli_cedula');
+
+
             clientes::create($clientes);
-            cuentas::create($clientes,$clientes);
+
+            DB::table('cuentas')->insert(
+                [
+                    'cli_cedula' => $numerocedula,
+                    'cue_saldo' => 0,
+                    'cue_activa' => 'inactiva',
+                    'cue_clave' => substr($numerocedula->cli_cedula, -4,4),
+                ]
+            );
+
             return redirect('clientes');    
         }
 
