@@ -13,4 +13,6 @@ class tipo_usuarios extends Model
         'created_at',
         'updated_at',
     ];
+
+    protected $primaryKey = 'tusu_codigo';
 }

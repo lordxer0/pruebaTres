@@ -1,8 +1,8 @@
 @extends('layout.plantilla')
 @section('content')
     <div>
-        <a href="{{ url('tipo_documentos')}}" class="btn btn-info pull-right"> << Atras </a>
-        <h1>Editar Tipo Documentos</h1>
+        <a href="{{ url('tipo_usuarios')}}" class="btn btn-info pull-right"> << Atras </a>
+        <h1>Editar Tipo Usuarios</h1>
     </div>
     <hr>
     <div class="row">
@@ -15,11 +15,11 @@
                 </ul>
             </div>
         @endif
-        {!! Form::model($tipo_documentos, ['method' => 'PATCH', 'route' => ['tipo_documentos.update', $tipo_documentos->tdoc_codigo], 'files' => true ]) !!}
+        {!! Form::model($tipo_usuario, ['method' => 'PATCH', 'route' => ['tipo_usuarios.update', $tipo_usuario->tusu_codigo ], 'files' => true ]) !!}
         <div class="col">
             <div class="form-group">
                     {!! Form::label('Nombre Documento', 'Nombre Documento:') !!}
-                    {!! Form::text('tdoc_nombre',null,['class' => 'form-control', 'required' => 'required']) !!}
+                    {!! Form::text('tusu_nombre',null,['class' => 'form-control', 'required' => 'required']) !!}
             </div>            
         </div>
         <div class="form-group">

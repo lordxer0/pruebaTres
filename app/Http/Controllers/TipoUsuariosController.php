@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\tipo_usuarios;
 use Illuminate\Http\Request;
+use Validator;
 
 class TipoUsuariosController extends Controller
 {
@@ -27,6 +28,7 @@ class TipoUsuariosController extends Controller
     public function create()
     {
         //
+        return view('tipo_usuarios.crear');
     }
 
     /**
@@ -38,6 +40,18 @@ class TipoUsuariosController extends Controller
     public function store(Request $request)
     {
         //
+        $tipo_usuarios = $request->all();
+        $validator = Validator::make($tipo_usuarios, [
+            'tusu_nombre'  => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        } else {
+            
+            tipo_usuarios::create($tipo_usuarios);
+            return redirect('tipo_usuarios');    
+        }
     }
 
     /**
@@ -46,9 +60,11 @@ class TipoUsuariosController extends Controller
      * @param  \App\tipo_usuarios  $tipo_usuarios
      * @return \Illuminate\Http\Response
      */
-    public function show(tipo_usuarios $tipo_usuarios)
+    public function show(tipo_usuarios $tipo_usuario)
     {
         //
+        $tipo_usuario = tipo_usuarios::find($tipo_usuario->tusu_codigo);
+        return view('tipo_usuarios.ver', compact('tipo_usuario'));
     }
 
     /**
@@ -57,9 +73,11 @@ class TipoUsuariosController extends Controller
      * @param  \App\tipo_usuarios  $tipo_usuarios
      * @return \Illuminate\Http\Response
      */
-    public function edit(tipo_usuarios $tipo_usuarios)
+    public function edit(tipo_usuarios $tipo_usuario)
     {
         //
+        $tipo_usuario = tipo_usuarios::find($tipo_usuario->tusu_codigo);
+        return view('tipo_usuarios.editar', compact('tipo_usuario'));
     }
 
     /**

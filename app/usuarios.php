@@ -16,4 +16,6 @@ class usuarios extends Model
         'created_at',
         'updated_at',
     ];
+
+    protected $primaryKey = 'usu_cedula';
 }
