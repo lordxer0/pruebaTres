@@ -6,8 +6,7 @@ use App\usuarios;
 use Illuminate\Http\Request;
 use App\tipo_usuarios;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Arr;
+use Validator;
 
 class UsuariosController extends Controller
 {
@@ -32,7 +31,7 @@ class UsuariosController extends Controller
     {
         //
         $tipo_usuarios = tipo_usuarios::pluck('tusu_nombre','tusu_codigo');
-        return view('clientes.crear',compact('tipo_documentos'));
+        return view('usuarios.crear',compact('tipo_usuarios'));
     }
 
     /**
@@ -44,6 +43,23 @@ class UsuariosController extends Controller
     public function store(Request $request)
     {
         //
+        $usuario = $request->all();
+
+        $validator = Validator::make($usuario, [
+            'usu_cedula'    => 'required',
+            'tusu_codigo'  => 'required',
+            'usu_nombre'    => 'required',
+            'usu_login'     => 'required',
+            'usu_clave'    => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        } else {
+
+            usuarios::create($usuario);
+            return redirect('usuarios');    
+        }
     }
 
     /**

@@ -25,7 +25,7 @@
                     
                     <div class="col-4 align-self-center">
                         <center>
-                            <a href="retiros" class="btn btn-info">Retiros</a>
+                            <a href="usuarios" class="btn btn-info">Usuarios</a>
                         </center>
                     </div>
                     
@@ -48,12 +48,6 @@
                 <div class="col-4 align-self-center">
                     <center>
                         <a href="retiros" class="btn btn-info">Retiros</a>
-                    </center>
-                </div>
-                
-                <div class="col-4 align-self-center">
-                    <center>
-                        <a href="cuentas" class="btn btn-info">Cuentas</a>
                     </center>
                 </div>
                         
