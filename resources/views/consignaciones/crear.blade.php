@@ -23,15 +23,15 @@
             {!! Form::open(['url' => 'consignaciones', 'files' => true]) !!}
             <div class="col">
                 <div class="form-group">
-                    {!! Form::label('Numero Documento', 'Numero Documento:') !!}
+                    {!! Form::label('Numero Cuenta', 'Numero Cuenta:') !!}
                     {!!Form::select('cue_numero',$cuentas,null, ['class' => 'form-control','placeholder' => 'seleccione la cuenta...'])!!}
                 </div>
                 <div class="form-group">
-                    {!! Form::label('Tipo Documento', 'Tipo Documento:') !!}
+                    {!! Form::label('Documento Usuario', 'Documento Usuario:') !!}
                     {!!Form::select('usu_cedula',$usuarios,null, ['class' => 'form-control','placeholder' => 'seleccione quien hace la transaccion...'])!!}
                 </div>
             <div class="form-group">
-                {!! Form::label('Nombre', 'Nombre:') !!}
+                {!! Form::label('Saldo a Agregar', 'Saldo a Agregar:') !!}
                 {!! Form::number('con_valor',null,['class'=>'form-control']) !!}
             </div>
             <div class="form-group">
@@ -39,7 +39,7 @@
                 {!! Form::date('con_fecha',null,['class' => 'form-control', 'required' => 'required']) !!}
             </div>
             <div class="form-group">
-                {!! Form::label('Telefono', 'Telefono:') !!}
+                {!! Form::label('descripcion', 'descripcion:') !!}
                 {!! Form::text('con_descripcion',null,['class'=>'form-control']) !!}
             </div>
         </div>

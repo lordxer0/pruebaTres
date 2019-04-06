@@ -25,8 +25,8 @@
              <td>{{ $consignacio->con_fecha }}</td>
              <td>{{ $consignacio->con_descripcion }}</td>
              <td>{{ $consignacio->con_valor }}</td>
-             <td><a href="{{ url('consignacioness', $consignaciones->con_codigo) }}" class="btn btn-primary">Ver</a></td>
-             <td><a href="{{ route('consignacioness.edit', $consignaciones->con_codigo) }}" class="btn btn-warning">Editar</a></td>
+             <td><a href="{{ url('consignaciones', $consignaciones->con_codigo) }}" class="btn btn-primary">Ver</a></td>
+             <td><a href="{{ route('consignaciones.edit', $consignaciones->con_codigo) }}" class="btn btn-warning">Editar</a></td>
          </tr>
      @endforeach
      </tbody>

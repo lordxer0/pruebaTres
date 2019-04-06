@@ -14,7 +14,7 @@ class CreateConsignacionesTable extends Migration
     public function up()
     {       
         Schema::create('consignaciones', function (Blueprint $table) {
-            $table->integer('con_codigo');
+            $table->increments('con_codigo');
             $table->date('con_fecha');
             $table->text('con_descripcion');
             $table->integer('con_valor');

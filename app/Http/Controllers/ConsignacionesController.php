@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use App\consignaciones;
 use App\cuentas;
 use App\usuarios;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Arr;
+use Validator;
 
 class ConsignacionesController extends Controller
 {
@@ -43,6 +47,45 @@ class ConsignacionesController extends Controller
     public function store(Request $request)
     {
         //
+        $consignacion = $request->all();
+
+        $saldo = Arr::get($consignacion,'con_valor');
+        $numeroCuenta = Arr::get($consignacion,'cue_numero');
+        
+        $validator = Validator::make($consignacion, [
+            'cue_numero'    => 'required',
+            'usu_cedula'  => 'required',
+            'con_valor'    => 'required',
+            'con_fecha'     => 'required|date',
+            'con_descripcion'    => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        } else {
+
+            consignaciones::create($consignacion);
+
+            if($saldo >99999){
+                
+                DB::table('cuentas')
+                    ->where('cue_numero',$numeroCuenta)
+                    ->increments('cue_saldo',$saldo)
+                    ->update(
+                        [
+                            'cue_activa' => 'activa'
+                        ]
+                    );
+            }else{
+                    
+                    DB::table('cuentas')
+                        ->where('cue_numero',$numeroCuenta)
+                        ->increments('cue_saldo',$saldo);
+
+            }
+            
+            return redirect('consignaciones');    
+        }
     }
 
     /**
