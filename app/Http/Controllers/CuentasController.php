@@ -6,6 +6,7 @@ use App\cuentas;
 use App\clientes;
 use App\Http\Controllers\DB;
 use Illuminate\Http\Request;
+use Validator;
 
 class CuentasController extends Controller
 {
@@ -47,7 +48,7 @@ class CuentasController extends Controller
             $cuentas = $request->all();
             $validator = Validator::make($cuentas, [
                 
-            'cli_cedula'  => 'required|max:50',
+            'cli_cedula'  => 'required',
             'cue_saldo'    => 'required',
             'cue_activa'     => 'required',
             'cue_clave'    => 'required'
@@ -97,9 +98,27 @@ class CuentasController extends Controller
      * @param  \App\cuentas  $cuentas
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, cuentas $cuentas)
+    public function update(Request $request, cuentas $cuenta)
     {
         //
+        $nuevosDatosCuenta = $request->all();
+        $cuenta = cuentas::find($cuenta->cue_numero);
+
+        $validator = Validator::make($nuevosDatosCuenta, [
+            'cli_cedula'  => 'required',
+            'cue_saldo'    => 'required',
+            'cue_activa'     => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        } else {
+           
+            $cuenta->update($nuevosDatosCuenta);
+            
+            return redirect('cuentas');
+        }
+
     }
 
     /**

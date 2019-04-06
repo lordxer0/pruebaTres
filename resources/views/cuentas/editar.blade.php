@@ -1,7 +1,7 @@
 @extends('layout.plantilla')
 @section('content')
     <div>
-        <a href="{{ url('cuenta')}}" class="btn btn-info pull-right"> << Atras </a>
+        <a href="{{ url('cuentas')}}" class="btn btn-info pull-right"> << Atras </a>
         <h1>Editar Cuenta</h1>
     </div>
     <hr>
@@ -26,20 +26,27 @@
                 {!! Form::label('Documento Cliente', 'Documento Cliente:') !!}
                 {!! Form::text('cli_cedula',null,['class' => 'form-control', 'required' => 'required']) !!}
             </div>
-            <div class="row">
-                <div class="form-group">
-                        {!! Form::label('Saldo', 'Saldo:') !!}
-                        {!! Form::text('cue_saldo',null,['class'=>'form-control']) !!}
-                </div>
-                <div class="col">
-                    <div class="form-group">
-                            {!! Form::label('Estado', 'Estado:') !!}
-                            {!! Form::radio('cue_activa','activa',['class' => 'form-control', 'required' => 'required']) !!}
-                            {!! Form::radio('cue_activa','inactiva',['class' => 'form-control', 'required' => 'required']) !!}
-                    </div>
-                </div>
-                
+            
+            <div class="form-group">
+                    {!! Form::label('Saldo', 'Saldo:') !!}
+                    {!! Form::text('cue_saldo',null,['class'=>'form-control']) !!}
             </div>
+            <div class="form-group">
+                {!! Form::label('clave', 'Clave:') !!}
+                {!! Form::text('cue_clave',null,['class'=>'form-control', 'placeholder' => 'cambie la contraseña a gusto']) !!}
+            </div>
+            <div class="col">
+                <div class="form-group">
+                        {!! Form::label('Estado', 'Estado') !!}
+                        <br>
+                        {!! Form::label('Estado', 'activo:') !!}
+                        {!! Form::radio('cue_activa','activa',['class' => 'form-control', 'required' => 'required']) !!}
+                        {!! Form::label('Estado', 'inactivo:') !!}
+                        {!! Form::radio('cue_activa','inactiva',['class' => 'form-control', 'required' => 'required']) !!}
+                </div>
+            </div>
+                
+            
             
         </div>
         

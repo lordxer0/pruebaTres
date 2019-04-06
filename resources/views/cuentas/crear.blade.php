@@ -1,11 +1,11 @@
 @extends('layout.plantilla')
 
-@section('titulo','clientes')
+@section('titulo','cuentas')
 
 @section('content')
     <div>
-        <a href="{{ url('clientes')}}" class="btn btn-info pull-right"> << Atras </a>
-        <h1>Crear Cliente</h1>
+        <a href="{{ url('cuentas')}}" class="btn btn-info pull-right"> << Atras </a>
+        <h1>Crear Cuenta</h1>
     </div>
     <center>
     <hr>
@@ -20,35 +20,31 @@
             </div>
         @endif
 
-            {!! Form::open(['url' => 'clientes', 'files' => true]) !!}
+            {!! Form::open(['url' => 'cuentas', 'files' => true]) !!}
             <div class="col">
                 <div class="form-group">
                     {!! Form::label('Numero Documento', 'Numero Documento:') !!}
-                    {!! Form::text('cli_cedula',null,['class' => 'form-control', 'required' => 'required']) !!}
+                    {!!Form::select('cli_cedula',$clientes,null, ['class' => 'form-control','placeholder' => 'seleccione la cedula del cliente...'])!!}
                 </div>
                 <div class="form-group">
-                    {!! Form::label('Tipo Documento', 'Tipo Documento:') !!}
-                    {!!Form::select('tdoc_codigo',$tipo_documentos,null, ['class' => 'form-control','placeholder' => 'seleccione tipo...'])!!}
+                    {!! Form::label('Saldo', 'Saldo inicial:') !!}
+                    {!! Form::text('cue_saldo',null,['class'=>'form-control']) !!}
                 </div>
-            <div class="form-group">
-                {!! Form::label('Nombre', 'Nombre:') !!}
-                {!! Form::text('cli_nombre',null,['class'=>'form-control']) !!}
+                <div class="col">
+                    <div class="form-group">
+                            {!! Form::label('Estado', 'Estado') !!}
+                            <br>
+                            {!! Form::label('Estado', 'activo:') !!}
+                            {!! Form::radio('cue_activa','activa',['class' => 'form-control', 'required' => 'required']) !!}
+                            {!! Form::label('Estado', 'inactivo:') !!}
+                            {!! Form::radio('cue_activa','inactiva',['class' => 'form-control', 'required' => 'required']) !!}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {!! Form::label('clave', 'Clave:') !!}
+                    {!! Form::text('cue_clave',null,['class'=>'form-control','placeholder' => 'ingrese una contraseña a gusto']) !!}
+                </div>
             </div>
-            <div class="form-group">
-                {!! Form::label('Direccion', 'Direccion:') !!}
-                {!! Form::text('cli_direccion',null,['class' => 'form-control', 'required' => 'required']) !!}
-            </div>
-            <div class="form-group">
-                {!! Form::label('Telefono', 'Telefono:') !!}
-                {!! Form::text('cli_telefono',null,['class'=>'form-control']) !!}
-            </div>
-        </div>
-        <div class="col">
-            <div class="form-group">
-                {!! Form::label('Email', 'Email:') !!}
-                {!! Form::Email('cli_mail',null,['class' => 'form-control', 'required' => 'required']) !!}
-            </div>
-        </div>
         <div class="form-group">
             {!! Form::submit('Guardar', ['class' => 'btn btn-primary form-control']) !!}
         </div>
