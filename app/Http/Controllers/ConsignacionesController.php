@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\consignaciones;
+use App\cuentas;
+use App\usuarios;
 use Illuminate\Http\Request;
 
 class ConsignacionesController extends Controller
@@ -27,6 +29,9 @@ class ConsignacionesController extends Controller
     public function create()
     {
         //
+        $cuentas = cuentas::pluck('cue_numero');
+        $usuarios = usuarios::pluck('usu_nombre','usu_cedula');
+        return view('consignaciones.crear',compact('cuentas','usuarios'));
     }
 
     /**

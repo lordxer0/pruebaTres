@@ -7,31 +7,26 @@
  <table class="table table-striped table-bordered table-hover">
      <thead>
      <tr class="bg-info">
-         <th>Numero Cedula</th>
-         <th>Tipo Documento</th>
-         <th>Nombre</th>
-         <th>Direccion</th>
-         <th>Telefono</th>
-         <th>Email</th>
+         <th>Codigo Consignacion</th>
+         <th>Numero de Cuenta</th>
+         <th>Documento Propietario</th>
+         <th>Fecha Consignacion</th>
+         <th>Descripcion</th>
+         <th>Valor</th>
          <th colspan="3">Acciones</th>
      </tr>
      </thead>
      <tbody>
      @foreach ($consignaciones as $consignacio)
          <tr>
-             <td>{{ $consignacio->cli_cedula }}</td>
-             <td>{{ $consignacio->tdoc_codigo }}</td>
-             <td>{{ $consignacio->cli_nombre }}</td>
-             <td>{{ $consignacio->cli_direccion }}</td>
-             <td>{{ $consignacio->cli_telefono }}</td>
-             <td>{{ $consignacio->cli_mail }}</td>
-             <td><a href="{{ url('consignacioness', $consignaciones->cli_cedula) }}" class="btn btn-primary">Ver</a></td>
-             <td><a href="{{ route('consignacioness.edit', $consignaciones->cli_cedula) }}" class="btn btn-warning">Editar</a></td>
-             <td>
-             {!! Form::open(['method' => 'DELETE', 'route'=>['consignacioness.destroy', $consignaciones->cli_cedula]]) !!}
-             {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-             {!! Form::close() !!}
-             </td>
+             <td>{{ $consignacio->con_codigo }}</td>
+             <td>{{ $consignacio->cue_numero }}</td>
+             <td>{{ $consignacio->usu_cedula }}</td>
+             <td>{{ $consignacio->con_fecha }}</td>
+             <td>{{ $consignacio->con_descripcion }}</td>
+             <td>{{ $consignacio->con_valor }}</td>
+             <td><a href="{{ url('consignacioness', $consignaciones->con_codigo) }}" class="btn btn-primary">Ver</a></td>
+             <td><a href="{{ route('consignacioness.edit', $consignaciones->con_codigo) }}" class="btn btn-warning">Editar</a></td>
          </tr>
      @endforeach
      </tbody>

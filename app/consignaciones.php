@@ -17,4 +17,6 @@ class consignaciones extends Model
         'created_at',
         'updated_at',
     ];
+
+    protected $primaryKey = 'con_codigo';
 }
