@@ -17,16 +17,16 @@
      </tr>
      </thead>
      <tbody>
-     @foreach ($consignaciones as $consignacio)
+     @foreach ($consignaciones as $consignacion)
          <tr>
-             <td>{{ $consignacio->con_codigo }}</td>
-             <td>{{ $consignacio->cue_numero }}</td>
-             <td>{{ $consignacio->usu_cedula }}</td>
-             <td>{{ $consignacio->con_fecha }}</td>
-             <td>{{ $consignacio->con_descripcion }}</td>
-             <td>{{ $consignacio->con_valor }}</td>
-             <td><a href="{{ url('consignaciones', $consignaciones->con_codigo) }}" class="btn btn-primary">Ver</a></td>
-             <td><a href="{{ route('consignaciones.edit', $consignaciones->con_codigo) }}" class="btn btn-warning">Editar</a></td>
+             <td>{{ $consignacion->con_codigo }}</td>
+             <td>{{ $consignacion->cue_numero }}</td>
+             <td>{{ $consignacion->usu_cedula }}</td>
+             <td>{{ $consignacion->con_fecha }}</td>
+             <td>{{ $consignacion->con_descripcion }}</td>
+             <td>{{ $consignacion->con_valor }}</td>
+             <td><a href="{{ url('consignaciones', $consignacion->con_codigo) }}" class="btn btn-primary">Ver</a></td>
+             <td><a href="{{ route('consignaciones.edit', $consignacion->con_codigo) }}" class="btn btn-warning">Editar</a></td>
          </tr>
      @endforeach
      </tbody>

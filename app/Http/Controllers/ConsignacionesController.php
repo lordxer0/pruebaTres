@@ -33,7 +33,7 @@ class ConsignacionesController extends Controller
     public function create()
     {
         //
-        $cuentas = cuentas::pluck('cue_numero');
+        $cuentas = cuentas::pluck('cue_numero','cue_numero');
         $usuarios = usuarios::pluck('usu_nombre','usu_cedula');
         return view('consignaciones.crear',compact('cuentas','usuarios'));
     }
@@ -70,7 +70,7 @@ class ConsignacionesController extends Controller
                 
                 DB::table('cuentas')
                     ->where('cue_numero',$numeroCuenta)
-                    ->increments('cue_saldo',$saldo)
+                    ->increment('cue_saldo',$saldo)
                     ->update(
                         [
                             'cue_activa' => 'activa'
@@ -80,7 +80,7 @@ class ConsignacionesController extends Controller
                     
                     DB::table('cuentas')
                         ->where('cue_numero',$numeroCuenta)
-                        ->increments('cue_saldo',$saldo);
+                        ->increment('cue_saldo',$saldo);
 
             }
             
