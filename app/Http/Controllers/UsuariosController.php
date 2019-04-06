@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\usuarios;
 use Illuminate\Http\Request;
+use App\tipo_usuarios;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Arr;
 
 class UsuariosController extends Controller
 {
@@ -27,6 +31,8 @@ class UsuariosController extends Controller
     public function create()
     {
         //
+        $tipo_usuarios = tipo_usuarios::pluck('tusu_nombre','tusu_codigo');
+        return view('clientes.crear',compact('tipo_documentos'));
     }
 
     /**
