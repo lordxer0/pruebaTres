@@ -1,5 +1,5 @@
 @extends('layout/plantilla')
-@section('titulo','clientes')
+@section('title','consignaciones')
 @section('content')
  <h1>Network Group Bank </h1>
  <a href="{{url('/consignaciones/create')}}" class="btn btn-info pull-right">Crear consignaciones</a>

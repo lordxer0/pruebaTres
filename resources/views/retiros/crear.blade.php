@@ -1,6 +1,6 @@
 @extends('layout.plantilla')
 
-@section('titulo','clientes')
+@section('title','retiros')
 
 @section('content')
     <div>
@@ -20,7 +20,7 @@
             </div>
         @endif
 
-            {!! Form::open(['url' => 'consignaciones', 'files' => true]) !!}
+            {!! Form::open(['url' => 'retiros', 'files' => true]) !!}
             <div class="col">
                 <div class="form-group">
                     {!! Form::label('Numero Cuenta', 'Numero Cuenta:') !!}
@@ -32,7 +32,7 @@
                 </div>
             <div class="form-group">
                 {!! Form::label('Saldo a Agregar', 'Saldo a Retirar:') !!}
-                {!! Form::number('con_valor',null,['class'=>'form-control']) !!}
+                {!! Form::number('ret_valor',null,['class'=>'form-control']) !!}
             </div>
             <div class="form-group">
                 {!! Form::label('Fecha', 'Fecha:') !!}
@@ -40,7 +40,7 @@
             </div>
             <div class="form-group">
                 {!! Form::label('descripcion', 'descripcion:') !!}
-                {!! Form::text('con_descripcion',null,['class'=>'form-control']) !!}
+                {!! Form::text('ret_descripcion',null,['class'=>'form-control']) !!}
             </div>
         </div>
         <div class="form-group">

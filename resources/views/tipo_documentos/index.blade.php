@@ -1,5 +1,5 @@
 @extends('layout/plantilla')
-@section('titulo','Tipo Documentos')
+@section('title','Tipo Documentos')
 @section('content')
  <h1>Network Group Bank </h1>
  <a href="{{url('/tipo_documentos/create')}}" class="btn btn-info pull-right">Crear Tipo Documentos</a>

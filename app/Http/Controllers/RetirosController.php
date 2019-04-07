@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Arr;
 
+use Validator;
+
 
 class RetirosController extends Controller
 {
@@ -35,7 +37,7 @@ class RetirosController extends Controller
         //
         $cuentas = cuentas::pluck('cue_numero','cue_numero');
         $usuarios = usuarios::pluck('usu_nombre','usu_cedula');
-        return view('consignaciones.crear',compact('cuentas','usuarios'));
+        return view('retiros.crear',compact('cuentas','usuarios'));
     }
 
     /**

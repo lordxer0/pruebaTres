@@ -1,5 +1,5 @@
 @extends('layout.plantilla')
-@section('titulo','Tipo Usuario')
+@section('title','Tipo usuario')
 @section('content')
     <div>
         <a href="{{ url('tipo_usuario')}}" class="btn btn-info pull-right"> << Atras </a>

@@ -1,6 +1,6 @@
 @extends('layout.plantilla')
 
-@section('titulo','cuentas')
+@section('title','cuentas')
 
 @section('content')
     <div>
