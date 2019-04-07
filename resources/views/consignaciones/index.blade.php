@@ -9,7 +9,7 @@
      <tr class="bg-info">
          <th>Codigo Consignacion</th>
          <th>Numero de Cuenta</th>
-         <th>Documento Propietario</th>
+         <th>Documento quien genero</th>
          <th>Fecha Consignacion</th>
          <th>Descripcion</th>
          <th>Valor</th>
@@ -26,7 +26,6 @@
              <td>{{ $consignacion->con_descripcion }}</td>
              <td>{{ $consignacion->con_valor }}</td>
              <td><a href="{{ url('consignaciones', $consignacion->con_codigo) }}" class="btn btn-primary">Ver</a></td>
-             <td><a href="{{ route('consignaciones.edit', $consignacion->con_codigo) }}" class="btn btn-warning">Editar</a></td>
          </tr>
      @endforeach
      </tbody>

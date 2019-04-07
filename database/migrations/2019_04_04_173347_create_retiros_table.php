@@ -15,6 +15,7 @@ class CreateRetirosTable extends Migration
     {
         Schema::create('retiros', function (Blueprint $table) {
             $table->increments('ret_codigo');
+            $table->integer('ret_valor');
             $table->date('ret_fecha');
             $table->text('ret_descripcion');
             

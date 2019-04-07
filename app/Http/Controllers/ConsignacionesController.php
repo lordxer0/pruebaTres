@@ -94,9 +94,11 @@ class ConsignacionesController extends Controller
      * @param  \App\consignaciones  $consignaciones
      * @return \Illuminate\Http\Response
      */
-    public function show(consignaciones $consignaciones)
+    public function show(consignaciones $consignacione)
     {
         //
+        $consignaciones = consignaciones::find($consignacione->con_codigo);
+        return view('consignaciones.ver', compact('consignaciones'));
     }
 
     /**

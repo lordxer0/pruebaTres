@@ -4,8 +4,8 @@
 
 @section('content')
     <div>
-        <a href="{{ url('consignaciones')}}" class="btn btn-info pull-right"> << Atras </a>
-        <h1>Crear Consignaciones</h1>
+        <a href="{{ url('retiros')}}" class="btn btn-info pull-right"> << Atras </a>
+        <h1>Crear Retiro</h1>
     </div>
     <center>
     <hr>
@@ -31,12 +31,12 @@
                     {!!Form::select('usu_cedula',$usuarios,null, ['class' => 'form-control','placeholder' => 'seleccione quien hace la transaccion...'])!!}
                 </div>
             <div class="form-group">
-                {!! Form::label('Saldo a Agregar', 'Saldo a Agregar:') !!}
+                {!! Form::label('Saldo a Agregar', 'Saldo a Retirar:') !!}
                 {!! Form::number('con_valor',null,['class'=>'form-control']) !!}
             </div>
             <div class="form-group">
                 {!! Form::label('Fecha', 'Fecha:') !!}
-                {!! Form::date('con_fecha',null,['class' => 'form-control', 'required' => 'required']) !!}
+                {!! Form::date('ret_fecha',null,['class' => 'form-control', 'required' => 'required']) !!}
             </div>
             <div class="form-group">
                 {!! Form::label('descripcion', 'descripcion:') !!}
