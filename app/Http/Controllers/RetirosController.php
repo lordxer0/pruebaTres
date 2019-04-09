@@ -83,10 +83,10 @@ class RetirosController extends Controller
      * @param  \App\retiros  $retiros
      * @return \Illuminate\Http\Response
      */
-    public function show(retiros $retiros)
+    public function show(retiros $retiro)
     {
         //
-        $retiro = retiros::find($retiros->con_codigo);
+        $retiro = retiros::find($retiro->ret_codigo);
         return view('retiros.ver', compact('retiro'));
     }
 

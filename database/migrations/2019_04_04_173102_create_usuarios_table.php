@@ -19,6 +19,7 @@ class CreateUsuariosTable extends Migration
             $table->string('usu_nombre');
             $table->string('usu_login');
             $table->integer('usu_clave');
+            $table->rememberToken();
             
             $table->primary('usu_cedula');
     

@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="sinopsis" class="col-sm-2 control-label"> 	Valor</label>
+                    <label for="sinopsis" class="col-sm-2 control-label">Valor</label>
                     <div class="col-sm-10">
                         <input class="form-control" id="sinopsis" style="resize: none; text-align:justify;" placeholder="{{$retiro->con_valor}}" readonly></textarea>
                     </div>
