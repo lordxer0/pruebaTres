@@ -68,9 +68,11 @@ class UsuariosController extends Controller
      * @param  \App\usuarios  $usuarios
      * @return \Illuminate\Http\Response
      */
-    public function show(usuarios $usuarios)
+    public function show(usuarios $usuario)
     {
         //
+        $usuario = usuarios::find($usuario->usu_cedula);
+        return view('usuarios.ver', compact('usuario'));
     }
 
     /**
@@ -79,9 +81,12 @@ class UsuariosController extends Controller
      * @param  \App\usuarios  $usuarios
      * @return \Illuminate\Http\Response
      */
-    public function edit(usuarios $usuarios)
+    public function edit(usuarios $usuario)
     {
         //
+        $usuario = usuarios::find($usuario->usu_cedula);
+        $tipo_usuarios = tipo_usuarios::pluck('tusu_nombre','tusu_codigo');
+        return view('usuarios.editar', compact('usuario','tipo_usuarios'));
     }
 
     /**
@@ -91,9 +96,29 @@ class UsuariosController extends Controller
      * @param  \App\usuarios  $usuarios
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, usuarios $usuarios)
+    public function update(Request $request, usuarios $usuario)
     {
         //
+        $nuevosDatosUsuario = $request->all();
+        
+        $usuarios = usuarios::find($usuario->usu_cedula);
+
+        $validator = Validator::make($nuevosDatosUsuario, [
+            'usu_cedula'    => 'required',
+            'tusu_codigo'  => 'required',
+            'usu_nombre'    => 'required',
+            'usu_login'     => 'required',
+            'usu_clave'    => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        } else {
+           
+            $usuarios->update($nuevosDatosUsuario);
+            
+            return redirect('usuarios');
+        }
     }
 
     /**

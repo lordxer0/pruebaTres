@@ -40,7 +40,7 @@
             </div>
             <div class="form-group">
                 {!! Form::label('Contraseña', 'Contraseña:') !!}
-                {!! Form::text('usu_clave',null,['class'=>'form-control']) !!}
+                {!! Form::password('usu_clave',['class'=>'form-control']) !!}
             </div>
         </div>
         

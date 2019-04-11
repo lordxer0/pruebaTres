@@ -3,8 +3,8 @@
 
 @section('content')
     <div>
-        <a href="{{ url('clientes')}}" class="btn btn-info pull-right"> << Atras </a>
-        <h1>Editar Cliente</h1>
+        <a href="{{ url('usuarios')}}" class="btn btn-info pull-right"> << Atras </a>
+        <h1>Editar usuarios</h1>
     </div>
     <hr>
     <div class="container">
@@ -17,39 +17,32 @@
                 </ul>
             </div>
         @endif
-        {!! Form::model($cliente, ['method' => 'PATCH', 'route' => ['clientes.update', $cliente->cli_cedula], 'files' => true ]) !!}
+        {!! Form::model($usuario, ['method' => 'PATCH', 'route' => ['usuarios.update', $usuario->usu_cedula], 'files' => true ]) !!}
         <div class="col">
             <div class="form-group">
                     {!! Form::label('Numero Documento', 'Numero Documento:') !!}
-                    {!! Form::text('cli_cedula',null,['class' => 'form-control', 'required' => 'required']) !!}
+                    {!! Form::text('usu_cedula',null,['class' => 'form-control', 'required' => 'required']) !!}
             </div>
             <div class="form-group">
-                {!! Form::label('Tipo Documento', 'Tipo Documento:') !!}
-                {!! Form::text('tdoc_codigo',null,['class' => 'form-control', 'required' => 'required']) !!}
+                {!! Form::label('Tipo Usuario', 'Tipo Usuario:') !!}
+                {!!Form::select('tusu_codigo',$tipo_usuarios,null, ['class' => 'form-control','required' => 'required','placeholder' => 'seleccione tipo...'])!!}
             </div>
             <div class="row">
                 <div class="form-group">
                         {!! Form::label('Nombre', 'Nombre:') !!}
-                        {!! Form::text('cli_nombre',null,['class'=>'form-control']) !!}
+                        {!! Form::text('usu_nombre',null,['class'=>'form-control']) !!}
                 </div>
                 <div class="col">
                     <div class="form-group">
-                            {!! Form::label('Direccion', 'Direccion:') !!}
-                            {!! Form::text('cli_direccion',null,['class' => 'form-control', 'required' => 'required']) !!}
+                            {!! Form::label('Nombre Usuario', 'Nombre Usuario:') !!}
+                            {!! Form::text('usu_login',null,['class' => 'form-control', 'required' => 'required']) !!}
                     </div>
                 </div>
                 <div class="form-group">
-                        {!! Form::label('Telefono', 'Telefono:') !!}
-                        {!! Form::text('cli_telefono',null,['class'=>'form-control']) !!}
+                        {!! Form::label('Clave', 'Clave:') !!}
+                        {!! Form::text('usu_clave',null,['class'=>'form-control']) !!}
                 </div>
             </div>
-            
-        </div>
-        <div class="col">
-                <div class="form-group">
-                        {!! Form::label('Email', 'Email:') !!}
-                        {!! Form::text('cli_mail',null,['class' => 'form-control', 'required' => 'required']) !!}
-                </div>
         </div>
         <div class="form-group">
             {!! Form::submit('Guardar', ['class' => 'btn btn-primary form-control']) !!}

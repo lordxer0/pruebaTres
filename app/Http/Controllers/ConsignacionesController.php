@@ -70,7 +70,11 @@ class ConsignacionesController extends Controller
                 
                 DB::table('cuentas')
                     ->where('cue_numero',$numeroCuenta)
-                    ->increment('cue_saldo',$saldo)
+                    ->increment('cue_saldo',$saldo);
+                    
+                    
+                DB::table('cuentas')
+                    ->where('cue_numero',$numeroCuenta)
                     ->update(
                         [
                             'cue_activa' => 'activa'

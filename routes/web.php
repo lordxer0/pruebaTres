@@ -11,23 +11,27 @@
 |
 */
 
-Route::resource('clientes','ClientesController');
 
-Route::resource('consignaciones','ConsignacionesController');
+    Route::resource('clientes','ClientesController');
 
-Route::resource('cuentas','CuentasController');
+    Route::resource('consignaciones','ConsignacionesController');
 
-Route::resource('retiros','RetirosController');
+    Route::resource('cuentas','CuentasController');
 
-Route::resource('tipo_documentos','TipoDocumentosController');
+    Route::resource('retiros','RetirosController');
 
-Route::resource('tipo_usuarios','TipoUsuariosController');
+    Route::resource('tipo_documentos','TipoDocumentosController');
 
-Route::resource('usuarios','UsuariosController');
+    Route::resource('tipo_usuarios','TipoUsuariosController');
+
+    Route::resource('usuarios','UsuariosController');
+
 
 Route::get('/', function () {
+
+   
     return view('welcome');
+
+
 });
-
-
 
