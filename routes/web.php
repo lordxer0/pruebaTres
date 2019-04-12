@@ -23,9 +23,11 @@
     
     Route::resource('usuarios','UsuariosController');
     
+    Route::resource('cuentas','CuentasController');
+
+    
     Route::middleware('RouteProtect')->group(function(){
         
-        Route::resource('cuentas','CuentasController');
 
     });
     
