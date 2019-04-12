@@ -23,6 +23,7 @@
 
     Route::resource('tipo_usuarios','TipoUsuariosController');
 
+    Route::resource('usuarios','UsuariosController');
     
     
     Route::get('/', function () {
@@ -37,7 +38,6 @@
             return view('welcome');
         });
         
-        Route::resource('usuarios','UsuariosController');
 
     });
 
