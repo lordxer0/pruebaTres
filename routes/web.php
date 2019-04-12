@@ -10,8 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-    Route::resource('clientes','ClientesController');
+    
+    Route::resource('clientes','ClientesController')->middleware('RouteProtect');
 
     Route::resource('consignaciones','ConsignacionesController');
 
@@ -23,7 +23,8 @@
 
     Route::resource('tipo_usuarios','TipoUsuariosController');
 
-    Route::resource('usuarios','UsuariosController');
+    Route::resource('usuarios','UsuariosController')->middleware('RouteProtect');
+
     
     
     Route::get('/', function () {

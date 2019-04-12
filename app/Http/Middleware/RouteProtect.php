@@ -15,11 +15,16 @@ class RouteProtect
      */
     public function handle($request, Closure $next)
     {
+        
         if($request->session()->has('tiposuser')){
 
             if(session()->pull('tiposuser','default')==1){
-                
-                return $next($request);
+                if($request->getUri()=='http://localhost/ngbank/public/cuentas'){
+                    if($request->getUri()=='http://localhost/ngbank/public/cliente'){
+
+                        return $next($request);
+                    }
+                }
 
             }else{
                 echo'<script language="javascript" > alert("no esta autorizado a entrar ahi");</script>';
@@ -29,7 +34,12 @@ class RouteProtect
 
             if(session()->pull('tiposuser','default')==2){
 
-                return $next($request);
+                if($request->getUri()=='http://localhost/ngbank/public/retiros'){
+                    if($request->getUri()=='http://localhost/ngbank/public/consignaciones'){
+
+                        return $next($request);
+                    }
+                }
 
             }else{
                 echo'<script language="javascript" > alert("no esta autorizado a entrar ahi");</script>';
