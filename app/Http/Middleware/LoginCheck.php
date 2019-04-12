@@ -6,6 +6,7 @@ use Closure;
 
 use Illuminate\Support\Facades\DB;
 
+
 class LoginCheck
 {
     /**
@@ -19,6 +20,8 @@ class LoginCheck
     {
         $ingreso = $request;
 
+        $user = DB::table('usuarios')->where('usu_cedula', $ingreso->usu_cedula)->first();
+
         $request->validate([
                 
             'usu_cedula'  => 'required',
@@ -27,10 +30,17 @@ class LoginCheck
 
             ]);
 
-        if ($ingreso->usu_login=='juanito') {
             
-            return $next($request);
-        
+        if ($ingreso->usu_cedula==$user->usu_cedula) {
+            if ($ingreso->usu_login==$user->usu_login) {
+                if ($ingreso->usu_clave==$user->usu_clave) {
+                    
+                    session(['key' => $user]);
+
+                    return $next($request);
+                
+                }
+            }
         }else{
 
             return view('/');

@@ -4,10 +4,12 @@
 
 @section('content')  
 
-    
+
 <center>
     <h1>
-        Bienvenido a NG Bank
+        Bienvenido {{$value = session()->pull('key', 'default')}} <br>
+        NG Bank
+
     </h1>
 </center>
 
