@@ -17,11 +17,15 @@ class RouteProtect
     {
         $link = $request->getUri();
         
-        if($request->session()->has('tiposuser')){  
+        $prueba = session()->pull('tiposuser','default');
 
+        print_r($prueba);
+        die;
+
+        if($request->session()->has('tiposuser')){  
             if(session()->pull('tiposuser','default')==1){
                 if($link=='http://localhost/ngbank/public/cuentas'){
-                    if($link=='http://localhost/ngbank/public/cliente'){
+                    if($link=='http://localhost/ngbank/public/clientes'){
 
                         return $next($request);
                     }

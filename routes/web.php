@@ -10,21 +10,22 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+    Route::resource('clientes','ClientesController');
+
+    Route::resource('consignaciones','ConsignacionesController');
+
+    
+    Route::resource('retiros','RetirosController');
+    
+    Route::resource('tipo_documentos','TipoDocumentosController');
+    
+    Route::resource('tipo_usuarios','TipoUsuariosController');
+    
+    Route::resource('usuarios','UsuariosController');
+    
     Route::middleware('RouteProtect')->group(function(){
         
-        Route::resource('clientes','ClientesController');
-
-        Route::resource('consignaciones','ConsignacionesController');
-
         Route::resource('cuentas','CuentasController');
-
-        Route::resource('retiros','RetirosController');
-
-        Route::resource('tipo_documentos','TipoDocumentosController');
-
-        Route::resource('tipo_usuarios','TipoUsuariosController');
-
-        Route::resource('usuarios','UsuariosController');
 
     });
     

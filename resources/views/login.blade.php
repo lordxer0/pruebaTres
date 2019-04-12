@@ -12,7 +12,7 @@
     <br><br><br>
 
   <form method="GET" action="{{url('/home')}}">
-    @csrf
+    
       <input type="text" id="login" class="fadeIn second" name="usu_cedula" placeholder="numero documento"><br>
       <input type="text" id="login" class="fadeIn second" name="usu_login" placeholder="usuario"><br>
       <input type="password" id="password" class="fadeIn third" name="usu_clave" placeholder="clave"><br>
