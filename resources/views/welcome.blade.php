@@ -7,7 +7,7 @@
 
 <center>
     <h1>
-        Bienvenido {{$value = session()->pull('key', 'default')}} <br>
+        Bienvenido {{$value = session()->pull('key','default')}} <br>
         NG Bank
 
     </h1>
@@ -52,6 +52,14 @@
                         <a href="retiros" class="btn btn-info">Retiros</a>
                     </center>
                 </div>
+                
+                <!--boton sin funcionamiento aun 
+                <div class="col-4 align-self-center">
+                    <center>
+                    <a href='{{session()->flush()}}' class="btn btn-danger">cerrar</a>
+                    </center>
+                </div>
+                -->
                         
             </div>
                 
