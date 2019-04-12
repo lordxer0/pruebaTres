@@ -1,6 +1,7 @@
 @extends('layout/plantilla')
 @section('title','cuentas')
 @section('content')
+@csrf
  <h1>Network Group Bank </h1>
  <a href="{{url('/cuentas/create')}}" class="btn btn-info pull-right">Crear Cuenta</a>
  <hr>

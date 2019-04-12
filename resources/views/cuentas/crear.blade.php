@@ -3,6 +3,7 @@
 @section('title','cuentas')
 
 @section('content')
+@csrf
     <div>
         <a href="{{ url('cuentas')}}" class="btn btn-info pull-right"> << Atras </a>
         <h1>Crear Cuenta</h1>

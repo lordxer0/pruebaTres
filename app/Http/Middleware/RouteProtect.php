@@ -15,12 +15,13 @@ class RouteProtect
      */
     public function handle($request, Closure $next)
     {
+        $link = $request->getUri();
         
-        if($request->session()->has('tiposuser')){
+        if($request->session()->has('tiposuser')){  
 
             if(session()->pull('tiposuser','default')==1){
-                if($request->getUri()=='http://localhost/ngbank/public/cuentas'){
-                    if($request->getUri()=='http://localhost/ngbank/public/cliente'){
+                if($link=='http://localhost/ngbank/public/cuentas'){
+                    if($link=='http://localhost/ngbank/public/cliente'){
 
                         return $next($request);
                     }
@@ -34,8 +35,8 @@ class RouteProtect
 
             if(session()->pull('tiposuser','default')==2){
 
-                if($request->getUri()=='http://localhost/ngbank/public/retiros'){
-                    if($request->getUri()=='http://localhost/ngbank/public/consignaciones'){
+                if($link=='http://localhost/ngbank/public/retiros'){
+                    if($link=='http://localhost/ngbank/public/consignaciones'){
 
                         return $next($request);
                     }

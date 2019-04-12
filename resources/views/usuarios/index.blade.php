@@ -1,6 +1,7 @@
 @extends('layout/plantilla')
 @section('title','Usuario')
 @section('content')
+@csrf
  <h1>Network Group Bank </h1>
  <a href="{{url('/usuarios/create')}}" class="btn btn-info pull-right">Crear Usuario</a>
  <hr>

@@ -4,6 +4,7 @@
 
 @section('content')  
 
+@csrf
 
 <center>
     <h1>

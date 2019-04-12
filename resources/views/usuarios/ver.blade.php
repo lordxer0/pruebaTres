@@ -2,6 +2,7 @@
 @section('title','Usuario')
 
 @section('content')
+@csrf
     <div>
         <a href="{{ url('usuarios')}}" class="btn btn-info pull-right"> << Atrás </a>
         <h1>Ver usuarios</h1>

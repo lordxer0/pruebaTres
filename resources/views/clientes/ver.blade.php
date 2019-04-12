@@ -1,6 +1,7 @@
 @extends('layout/plantilla')
 @section('title','clientes')
 @section('content')
+@csrf
     <div>
         <a href="{{ url('clientes')}}" class="btn btn-info pull-right"> << Atrás </a>
         <h1>Ver cliente</h1>
