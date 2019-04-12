@@ -39,7 +39,7 @@ class LoginCheck
                         
                         session(['cedula' => $user->usu_cedula]);
                         session(['usuario' => $user->usu_login]);
-                        session(['key' => $user->usu_nombre]);
+                        session(['nombre' => $user->usu_nombre]);
                         session(['tiposuser' => $user->tusu_codigo]);
                         
                         return $next($request);

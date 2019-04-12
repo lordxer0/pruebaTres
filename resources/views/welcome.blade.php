@@ -7,7 +7,7 @@
 
 <center>
     <h1>
-        Bienvenido {{$value = session()->pull('key','default')}} <br>
+        Bienvenido {{$value = session()->pull('nombre','default')}} <br>
         NG Bank
 
     </h1>
