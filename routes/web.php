@@ -11,7 +11,6 @@
 |
 */
 
-
     Route::resource('clientes','ClientesController');
 
     Route::resource('consignaciones','ConsignacionesController');
@@ -27,11 +26,18 @@
     Route::resource('usuarios','UsuariosController');
 
 
-Route::get('/', function () {
+    Route::get('/', function () {
+        
+        return view('login');
+        
+    });
+    
+    Route::middleware('LoginCheck')->group(function(){
+        
+        Route::get('home', function () {
+            return view('welcome');
+        });
 
-   
-    return view('welcome');
+    });
 
-
-});
 
